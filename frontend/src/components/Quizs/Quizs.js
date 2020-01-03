@@ -3,24 +3,26 @@ import QuizItem from "../QuizItem";
 import "./Quizs.css";
 
 
-const Quizs = () => {
+const Quizs = ({ testsData }) => {
 
-    const allQuizs = todos.map((item) => {
-        const { id, ...itemProps } = item;
-    
+    const allQuizs = testsData.map((item) => {
+
         return (
-            <li key={id} className="list-group-item">
+            <div key={item.id} className="pt-4">
                 <QuizItem
-                    {...itemProps}
+                    {...item}
                 />
-            </li>
+            </div>
         );
     });
 
     return (
-        <ul className="list-group todo-list">
-            {allQuizs}
-        </ul>
+        <div className="container row">
+            <div className="col-3"></div>
+            <div className="col-9">
+                {allQuizs}
+            </div>
+        </div>
     );
 }
 
